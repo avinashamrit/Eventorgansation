@@ -1,0 +1,163 @@
+{% extends 'base.html'%}
+{% block content%}
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>About Us</title>
+    <style>
+      body{
+        background-attachment:fixed;
+        background-position: right top;
+        background-image:linear-gradient(#44a08d,#093637);
+
+        color:white;
+
+        }
+
+  .head{
+    background-image: linear-gradient(#fe8c00,#f83600);
+    color:white;
+
+    padding:10px
+}
+        .about{
+          padding:20px;
+        }
+.footer{
+background-image:linear-gradient(#FF4E50,#F9D423);
+color:white;
+padding:10px;
+}
+
+    </style>
+  </head>
+  <body>
+
+
+  <header>
+  <div class="head">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-2"><i class="far fa-envelope"></i>  event@gmail.com</div>
+        <div class="col-sm-2"><i class="fal fa-phone-alt"></i> +91-6280255879</div>
+        <div class="col-sm-6"></div>
+        {% if user.is_authenticated %}
+        <div class="nav-link-active">Hello,{{user.first_name}}</div>
+        <div class="nav-item">
+            <a class=" text-white nav-link active" aria-current="page" href="{% url 'logout' %}">Logout</a>
+        </div>
+
+        {% else %}
+        <div class="col-sm-1"><a href="{% url 'register' %}" class="nav-link text-white " aria-current="page"> Register</a></div>
+        <div class="col-sm-1"><a href="{% url 'login' %}" class="nav-link text-white" aria-current="page">Login</a></div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  </header>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto text-center">
+      <li class="nav-item active">
+        <a class=" text-white nav-link" href="{% url 'about' %}"><i class="fas fa-home"></i><span class="sr-only"></span></a>
+      </li>
+        <li class=" nav-item dropdown">
+        <a class=" text-white nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          EVENT
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'family' %}">FAMILY EVENT</a>
+          <a class="dropdown-item" href="{% url 'culture' %}">CULTURE EVENT</a>
+          <a class="dropdown-item" href="{% url 'buisness' %}">BUSINESS EVENT</a>
+          <a class="dropdown-item" href="{% url 'charity' %}">CHARITY EVENT</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class=" text-white nav-link" href="{% url 'about' %}" tabindex="-1" aria-disabled="true">ABOUT US</a>
+      </li>
+        <li class="  nav-item">
+        <a class=" text-white nav-link" href="{% url 'bookevent' %}" tabindex="-1" aria-disabled="true">BOOK EVENT</a>
+      </li>
+       <li class="  nav-item">
+        <a class=" text-white nav-link" href="{% url 'contact' %}" tabindex="-1" aria-disabled="true">CONTACT US</a>
+      </li>
+       <li class="nav-item active">
+        <a class=" text-white nav-link text-warning" href="{% url 'user_cart' %}">YOUR EVENT<span class="sr-only"></span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+  <section class="about p-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>About Us</h1><hr>
+          <h3>FAMILY EVENT</h3>
+          <p>Be it anniversary or any other family function, we have got everything covered. Give us a call or leave your requirements with us and we will get you best-suited venue options for your event.</p>
+        </div>
+        <div class="col-md-6">
+          <img id="deepak" src="/static/rawan1.jpg" width="600" height="300" border="solid">
+        </div>
+        <div class="col-sm-6">
+          <h3>CHARITY EVENT</h3>
+          <p>We have our event plans all set and in motion, it’s now time for another extremely important task, it is time to start promoting the events! Promoting events helps us attract the right audience and basically get the party started! Now event promotion and marketing can be something heavy on </p>
+        </div>
+        <div class="col-sm-6"> </div>
+        <div class="col-sm-12"><br><br>
+          <h3>BUSINESS EVENT</h3>
+          <P>In order to ensure that an event is super successful and extremely memorable, an event demands a marvellous atmosphere and the courtesy of the apt decor. One can create an immersive experience by decorating the venue or even their own home by paying attention to the details and by being </P>
+        </div>
+        <div class="col-sm-12"><br><br>
+          <h3>CULTURE EVENT</h3>
+          <P>Encourage employees to decorate their workstations or cubicles uniquely on a seasonal theme. Winners can be announced at the party.Depending on the number of employees playing the game, blow up 50 or more balloons and divide the team using a painter’s tape. Two minutes are given to each team to hustle as many balloons as possible to the other side. Seems simple? There is a catch. The employees are expected to do this without crossing the line.
+
+</P>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    -->
+
+<section class="footer">
+  <div class="container" align="center">
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Developed By:Vimaljit Singh</h5>
+        <h6>CONTACT</h6>
+        <a href="https://www.facebook.com/profile.php?id=100047433977691"><i class="fab fa-facebook-square fa-3x"> </i></a>
+        <a href="https://www.instagram.com/_deepak.deep/"><i class="fab fa-instagram-square fa-3x"> </i></a>
+        <a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin-in fa-3x"></i> </a>
+      </div>
+      <div class="col-sm-6">
+        <h6>ADDRESS</h6>
+        <p>TDI City,MOHALI,<br>PUNJAB,<br>SECTOR-118 <br>PINCODE-140301</p>
+      </div>
+    </div>
+  </div>
+</section>
+  </body>
+</html>
+{% endblock %}

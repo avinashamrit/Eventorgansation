@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content%}
+<style>
+    body{
+      background-attachment:fixed;
+      background-position: right top;
+      background-image:linear-gradient(#44a08d,#093637);
+
+      color:white;
+
+      }
+
+.head{
+  background-image: linear-gradient(#fe8c00,#f83600);
+  color:white;
+
+  padding:10px
+}
+      .about{
+        padding:20px;
+      }
+.footer{
+background-image:linear-gradient(#FF4E50,#F9D423);
+color:white;
+padding:10px;
+}
+
+  </style>
+</head>
+</body>
+
+<form method='POST'>
+    
+    {% csrf_token %}
+    <center>
+  <div class="form-group">
+    <input type="text" name="username" placeholder="Name" class="form-control">
+  </div>
+<div class="form-group">
+  <input type="password" name="password" placeholder="Password" class="form-control">
+</div>
+<button type="submit" class=" btn btn-success form-control">Submit</button><br><br>
+    <button type="register" class=" btn btn-success form-control">Register</button><br><br>
+</form>
+</center>
+{% for messege in messeges%}
+{{messege}}
+
+{% endfor %}
+
+{% endblock%}

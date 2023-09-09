@@ -1,0 +1,141 @@
+{% extends 'base.html'%}
+{% block content %}
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Event_Project</title>
+</head>
+<body>
+  
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="{% url 'base' %}"><i class="fas fa-home"></i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'bookevent'%}">Bookevent</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'user_cart'%}">YourEvent</a>
+    </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item active">hello,{{user.Name}}</li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout'%}">logout</a>
+          </li>
+          </li>
+          {% else %}
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'register'%}">register</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'login'%}">login</a>
+          </li>
+          {% endif %}
+
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Event_Feature
+        </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{%url 'family'%}">Family</a>
+                  <a class="dropdown-item" href="{% url 'charity'%}">Charity</a>
+                  <a class="dropdown-item" href="{%url 'buisness'%}">Buisness</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{%url 'culture'%}">Culture</a>
+              </div>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link enable" href="{%url 'about'%}">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link enable" href="{%url 'contact'%}">ContactUs</a>
+        </li>
+      </ul>
+      <form method='POST' class="form-inline my-2 my-lg-0">{%csrf_token%}
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+  </div>
+</nav>
+</body>
+</div>
+</div>
+<form method="POST">
+  {% csrf_token %}
+<center>
+  <h1>contact_us for more information</h1>
+name:<input type="text" name="name"><br><br>
+mobile:<input type="number" name="mobile"><br><br>
+email:<input type="email" name="email"><br><br>
+message:<input type="text" name="message"><br><br>
+<button type="submit">sent</button>
+</center>
+</form>
+<style>
+  body{
+    background-attachment:fixed;
+    background-position: right top;
+    background-image:linear-gradient(#44a08d,#093637);
+
+    color:white;
+
+    }
+
+.head{
+background-image: linear-gradient(#fe8c00,#f83600);
+color:white;
+
+padding:10px
+}
+    .about{
+      padding:20px;
+    }
+.footer{
+background-image:linear-gradient(#FF4E50,#F9D423);
+color:white;
+padding:10px;
+}
+
+</style>
+</head>
+</body>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+  <section class="footer">
+    <div class="container" align="center">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Developed By:Vimaljit Singh</h5>
+          <h6>CONTACT</h6>
+          <a href="https://www.facebook.com/profile.php?id=100047433977691"><i class="fab fa-facebook-square fa-3x"> </i></a>
+          <a href="https://www.instagram.com/_deepak.deep/"><i class="fab fa-instagram-square fa-3x"> </i></a>
+          <a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin-in fa-3x"></i> </a>
+        </div>
+        <div class="col-sm-6">
+          <h6>ADDRESS</h6>
+          <p>TDI City,MOHALI,<br>PUNJAB,<br>SECTOR-118 <br>PINCODE-140301</p>
+        </div>
+      </div>
+    </div>
+  </section>
+    </body>
+  </html>
+{% endblock %}

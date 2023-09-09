@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static%}
+<h1>FamilyEvent</h1>
+<style>
+    body{
+      background-attachment:fixed;
+      background-position: right top;
+      background-image:linear-gradient(#44a08d,#093637);
+
+      color:white;
+
+      }
+
+.head{
+  background-image: linear-gradient(#fe8c00,#f83600);
+  color:white;
+
+  padding:10px
+}
+      .about{
+        padding:20px;
+      }
+.footer{
+background-image:linear-gradient(#FF4E50,#F9D423);
+color:white;
+padding:10px;
+}
+
+  </style>
+</head>
+</body>
+
+<center>
+{% for i in family %}
+
+<div class='card'>
+    <div class="card-body">
+<h5 class='display-4' style='text-align: center' >{{i.Event_type}}</h5>
+<img class="card-img-top" src="{{i.Image.url}}" width="400" height='400'><br>
+    <p>{{i.Desc}}{</p>
+    <p>{{i.Food}}</p><p>{{i.Decoration}}</p>
+
+</div>
+</div>
+</tr>
+{% endfor %}
+</center>
+{% endblock %}

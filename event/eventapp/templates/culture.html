@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Culture</h1>
+<style>
+    body{
+      background-attachment:fixed;
+      background-position: right top;
+      background-image:linear-gradient(#44a08d,#093637);
+
+      color:white;
+
+      }
+
+.head{
+  background-image: linear-gradient(#fe8c00,#f83600);
+  color:white;
+
+  padding:10px
+}
+      .about{
+        padding:20px;
+      }
+.footer{
+background-image:linear-gradient(#FF4E50,#F9D423);
+color:white;
+padding:10px;
+}
+
+  </style>
+</head>
+<body>
+
+<center>
+{% for i in culture %}
+{{i.Event_type}}<br>
+
+<img src="{{i.Image.url}}" width="400" height='400'><br>
+
+{{i.Desc}}<br>
+{{i.Food}}<br>
+{{i.Decoration}}<br>
+{{i.CG}}<br>
+</center>
+{% endfor %}
+{% endblock %}
